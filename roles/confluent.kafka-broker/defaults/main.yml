@@ -22,15 +22,17 @@ kafka:
       num.network.threads: 8
       num.partitions: 1
       num.recovery.threads.per.data.dir: 2
-      offsets.topic.replication.factor: 3
+      offsets.topic.replication.factor: 1
       socket.receive.buffer.bytes: 102400
       socket.request.max.bytes: 104857600
       socket.send.buffer.bytes: 102400
       transaction.state.log.min.isr: 2
-      transaction.state.log.replication.factor: 3
+      transaction.state.log.replication.factor: 1
       zookeeper.connection.timeout.ms: 6000
       metric.reporters: io.confluent.metrics.reporter.ConfluentMetricsReporter
       confluent.metrics.reporter.bootstrap.servers: "{{inventory_hostname}}:{{broker.config.port}}"
-      confluent.metrics.reporter.topic.replicas: 3
+      confluent.metrics.reporter.topic.replicas: 1
       ssl.endpoint.identification.algorithm: ""
       confluent.metrics.reporter.ssl.endpoint.identification.algorithm: ""
+      message.max.bytes: 104857600
+      replica.fetch.max.bytes: 209715200
